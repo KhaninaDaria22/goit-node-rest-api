@@ -60,17 +60,17 @@ async function listContacts() {
     return newContacts;
 }
 
-async function updateContact(contactId, data ) {
+async function updateContacts(contactId, data ) {
     const contacts = await listContacts();
-    const index = contacts.findIndex((contact) => contact.id === contactId);
+    const index = contacts.findIndex((contact) => contact.contactId === contactId);
     if(index === -1) {
         return null;
     }
-    const contactToUpdate = contacts.find((contact) => contact.id === id);
+    const contactToUpdate = contacts.find((contact) => contact.contactId  === contactId);
     contacts[index] = { id, ...contactToUpdate, ...data };
   
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
     return contacts[index];
 }
 
-module.exports =  {listContacts,getContactById, removeContact, addContact, updateContact};
+module.exports =  {listContacts,getContactById, removeContact, addContact, updateContacts};
