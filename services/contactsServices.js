@@ -1,6 +1,6 @@
-const fs = require("node:fs/promises");
-const path = require("path");
-const crypto = require("crypto");
+import * as fs from "node:fs/promises";
+import path from "node:path";
+import crypto from "node:crypto";
 
 const contactsPath = path.join(__dirname, "./db/contacts.json");
 
@@ -73,4 +73,4 @@ async function updateContact(contactId, data ) {
     return contacts[index];
 }
 
-module.exports =  {listContacts,getContactById, removeContact, addContact, updateContact};
+export {listContacts,getContactById, removeContact, addContact, updateContacts};
