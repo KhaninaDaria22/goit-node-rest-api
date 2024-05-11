@@ -13,7 +13,7 @@ mongoose
     });
   })
   .catch((error) => {
-    console.error(error);
+    console.error(error);и
     process.exit(1);
   });
 
