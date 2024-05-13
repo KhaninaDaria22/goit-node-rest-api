@@ -4,7 +4,8 @@ import cors from "cors";
 
 import contactsRouter from "./routes/contactsRouter.js";
 
-import userRouter from "./routes/userRouter";
+import userRouter from "./routes/userRouter.js";
+
 const app = express();
 
 app.use(morgan("tiny"));

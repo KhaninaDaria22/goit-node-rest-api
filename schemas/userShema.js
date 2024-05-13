@@ -1,31 +1,31 @@
 import Joi from "joi";
 
-export const createUsertSchema = Joi.object({
-  name: Joi.string()
+export const registerUsertSchema = Joi.object({
+  password: Joi.string()
+    .min(6)
     .required()
     .messages({ "any.required": "Missing required name field" }),
 
   email: Joi.string()
+   .email()
     .required()
     .messages({ "any.required": "Missing required email field" }),
-  phone: Joi.string()
-    .required()
+    
+    subscription: Joi.string()
+    .valid("starter", "pro", "business")
     .messages({ "any.required": "Missing required phone field" }),
-  favorite: Joi.boolean(),
 });
 
-export const updateContactSchema = Joi.object({
-  name: Joi.string(),
+export const loginSchema = Joi.object({
+    password: Joi.string().min(6).required().messages({
+      "any.required": "Enter password",
+    }),
+    email: Joi.string().email().required().messages({
+      "any.required": "Enter email",
+    }),
+    subscription: Joi.string().valid("starter", "pro", "business").messages({
+      "any.only": "Subscription has only 3 values: starter, pro, business",
+    }),
+  });
+  
 
-  email: Joi.string(),
-
-  phone: Joi.string(),
-
-  favorite: Joi.boolean(),
-});
-
-export const updateFavoriteSchema = Joi.object({
-  favorite: Joi.boolean()
-    .required()
-    .messages({ "any.required": "missing field favorite" }),
-});
