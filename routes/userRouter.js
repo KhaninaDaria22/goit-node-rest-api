@@ -8,4 +8,4 @@ const userRouter = express.Router();
 
 userRouter.post("/register",validateBody(registerUsertSchema), register);
 userRouter.post("/login", validateBody(loginSchema), login );
-export default contactsRouter;
+export default userRouter;
