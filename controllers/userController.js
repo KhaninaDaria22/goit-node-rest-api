@@ -1,5 +1,5 @@
 import HttpError from "../helpers/HttpError.js";
-import { User } from "../db/user.js";
+import  User  from "../db/user.js";
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken";
 
