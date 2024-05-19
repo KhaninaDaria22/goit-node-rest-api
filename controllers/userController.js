@@ -40,8 +40,27 @@ export const login = async(req, res) => {
         id: user_id,
     }
     const token = jwt.sign(payload, SECRET_KEY, {expiresIn: "24h"});
+    await User.findByIdAndUpdate(user._id, {token})
 
     res.json({
         token,
+    })
+}
+
+export const getCurrent = async(req, res)=> {
+    const {email, name} = res.user;
+
+    res.json({
+        email,
+        name,
+    })
+}
+
+export const logout = async(req, res) => {
+    const {_id} = req.user;
+    await User.findByIdAndUpdate({token: ""});
+
+    res.json({
+        message: "Logout succes",
     })
 }

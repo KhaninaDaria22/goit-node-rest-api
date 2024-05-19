@@ -6,13 +6,13 @@ import contactsRouter from "./routes/contactsRouter.js";
 
 import userRouter from "./routes/userRouter.js";
 
-const app = express();
+export const app = express();
 
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
 
-app.use("/app/user");
+app.use("/app/user", userRouter);
 app.use("/api/contacts", contactsRouter);
 
 app.use((_, res) => {

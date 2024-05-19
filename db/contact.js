@@ -1,5 +1,8 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { handleMongooseError } from "../helpers/handleMongoseError.js";
+import Joi from 'joi';
+
+const { required } = Joi;
 
 const contactSchema = new mongoose.Schema({
     name: {
@@ -16,6 +19,11 @@ const contactSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
       },
+      owner: {
+        type: Schema.Types.ObjectId,
+        ref: "user",
+        required: true,
+      }
 }, {versionKey: false, timeseries: true});
 
 contactSchema.post("save",(handleMongooseError));
