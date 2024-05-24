@@ -24,4 +24,8 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
+<<<<<<< HEAD
 
+=======
+export {app};
+>>>>>>> main

@@ -3,7 +3,6 @@ import 'dotenv/config'
 import {app} from "./app.js"
 
 
-const {DB_URL, PORT = 4000} = process.env; 
 
 mongoose
   .connect(DB_URL)
@@ -13,7 +12,7 @@ mongoose
     });
   })
   .catch((error) => {
-    console.error(error);
+    console.error(error);и
     process.exit(1);
   });
 
