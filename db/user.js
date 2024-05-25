@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
           type: String,
           default: " ",
         },
-}, {versionKey: false, timestamps: true});
+}, ({versionKey: false, timeseries: true}));
 
 userSchema.post("save", handleMongooseError);
 
