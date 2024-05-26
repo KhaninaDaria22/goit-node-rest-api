@@ -21,7 +21,7 @@ export const register = async(req, res) => {
     const createHashPassword = await bcrypt.hash(password, 10) 
     const avatarURL = gravatar.url(email);
 
-    const newUser = await User.create({...req.body, password: createHashPassword});
+    const newUser = await User.create({...req.body, password: createHashPassword},avatarURL);
     
     res.status(201).json({
         email: newUser.email,
@@ -52,7 +52,7 @@ export const login = async(req, res) => {
         token,
         user: {
           email: user.email,
-          subscription: user.subscription,
+          name: user.name,
         },
     });
 }
@@ -62,7 +62,7 @@ export const getCurrent = async(req, res)=> {
 
     res.json({
         email,
-        subscription,
+        name,
       });
 }
 

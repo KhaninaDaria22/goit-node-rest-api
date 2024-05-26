@@ -8,12 +8,15 @@ import userRouter from "./routes/userRouter.js";
 
 export const app = express();
 
+app.use(express.static("public"));
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
 
+
 app.use("/api/users", userRouter);
 app.use("/api/contacts", contactsRouter);
+
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });
