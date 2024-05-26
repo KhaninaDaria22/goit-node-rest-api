@@ -17,6 +17,6 @@ userRouter.get("/current", authenticate, getCurrent);
 
 userRouter.post("/logout", authenticate, logout);
 
-userRouter.patch("/avatars", authenticate, upload.single('avatar'), updateAvatar);
+userRouter.patch("/avatars", authenticate, upload.single("avatar"), updateAvatar);
 
 export default userRouter;
