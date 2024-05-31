@@ -21,6 +21,15 @@ const userSchema = new mongoose.Schema(
           type: String,
           default: " ",
         },
+        verify: {
+          type: Boolean,
+          default: false,
+        },
+        verificationCode: {
+          type: String,
+          default: ""
+        }
+        
 }, {versionKey: false, timestamps: true});
 
 userSchema.post("save", handleMongooseError);
